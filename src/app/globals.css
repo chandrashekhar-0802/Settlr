@@ -1,26 +1,100 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+/* Settlr design tokens. Light theme is primary (no dark theme in v1). */
+@theme {
+  --color-bg: #f4f9fc;
+  --color-surface: #ffffff;
+  --color-tint: #e9f2f8;
+  --color-line: #dbe6ef;
+  --color-navy: #17283a;
+  --color-navy-2: #2a3d52;
+  --color-blue: #6879de;
+  --color-blue-soft: #e8ebfb;
+  --color-coral: #f36a5b;
+  --color-coral-soft: #fdeceA;
+  --color-sun: #f6c653;
+  --color-sun-soft: #fdf5dc;
+  --color-mint: #3fae8c;
+  --color-mint-soft: #e1f4ee;
+  --color-muted: #6b7b8d;
+
+  --font-sans: var(--font-jakarta), ui-sans-serif, system-ui, sans-serif;
+
+  --radius-card: 1.25rem;
+  --shadow-soft: 0 1px 2px rgb(23 40 58 / 0.04), 0 8px 24px -8px rgb(23 40 58 / 0.10);
+  --shadow-lift: 0 2px 4px rgb(23 40 58 / 0.05), 0 18px 40px -12px rgb(23 40 58 / 0.18);
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  color-scheme: light;
+  -webkit-text-size-adjust: 100%;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background: var(--color-bg);
+  color: var(--color-navy);
+  font-family: var(--font-sans);
+  text-rendering: optimizeLegibility;
 }
+
+h1, h2, h3 {
+  text-wrap: balance;
+  letter-spacing: -0.02em;
+}
+p { text-wrap: pretty; }
+
+:focus-visible {
+  outline: 2px solid var(--color-blue);
+  outline-offset: 2px;
+  border-radius: 6px;
+}
+
+/* Lenis */
+html.lenis, html.lenis body { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto !important; }
+.lenis.lenis-stopped { overflow: clip; }
+
+/* Scroll-driven reveals: progressive enhancement, decorative only, so no JS fallback. */
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: view()) and (animation-range: entry)) {
+    @keyframes reveal-up {
+      from { opacity: 0; translate: 0 32px; }
+    }
+    .reveal {
+      animation: reveal-up auto cubic-bezier(.2,.7,.2,1) backwards;
+      animation-timeline: view();
+      animation-range: entry 0% entry 70%;
+    }
+    @keyframes drift {
+      from { translate: 0 var(--drift, 40px); }
+      to { translate: 0 calc(var(--drift, 40px) * -1); }
+    }
+    .parallax {
+      animation: drift linear both;
+      animation-timeline: view();
+    }
+  }
+  .lift { transition: translate .25s cubic-bezier(.2,.7,.2,1), box-shadow .25s; }
+  .lift:hover { translate: 0 -3px; box-shadow: var(--shadow-lift); }
+}
+
+/* Native modal dialogs (filters drawer, inquiry form) */
+dialog:modal { overscroll-behavior: contain; }
+dialog::backdrop {
+  background: rgb(23 40 58 / 0.35);
+  backdrop-filter: blur(2px);
+  overflow: hidden;
+  overscroll-behavior: contain;
+}
+
+.skeleton {
+  background: linear-gradient(90deg, var(--color-tint) 25%, #f6fafd 50%, var(--color-tint) 75%);
+  background-size: 200% 100%;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .skeleton { animation: shimmer 1.4s linear infinite; }
+  @keyframes shimmer { to { background-position: -200% 0; } }
+}
+
+input[type="range"] { accent-color: var(--color-blue); }
+input[type="checkbox"], input[type="radio"] { accent-color: var(--color-navy); }
