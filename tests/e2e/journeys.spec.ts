@@ -1,12 +1,14 @@
 import { expect, test, type Page } from "@playwright/test";
 
 const errors: string[] = [];
+// WebKit reports Next.js prefetches (?_rsc=) aborted by a navigation as "access control checks" errors. Harmless; nothing else is ignored.
+const ABORTED_PREFETCH = /\?_rsc=\S+ due to access control checks/;
 test.beforeEach(async ({ page }) => {
   errors.length = 0;
-  page.on("pageerror", (e) => errors.push(e.message));
+  page.on("pageerror", (e) => !ABORTED_PREFETCH.test(e.message) && errors.push(e.message));
   page.on("console", (m) => {
     // OSM tile requests can fail offline; everything else is an error.
-    if (m.type() === "error" && !/tile\.openstreetmap|Failed to load resource/.test(m.text())) errors.push(m.text());
+    if (m.type() === "error" && !/tile\.openstreetmap|Failed to load resource/.test(m.text()) && !ABORTED_PREFETCH.test(m.text())) errors.push(m.text());
   });
 });
 test.afterEach(() => expect(errors, errors.join("\n")).toEqual([]));
