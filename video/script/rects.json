@@ -1,0 +1,204 @@
+{
+ "home-hero": {
+  "h1": {
+   "x": 284,
+   "y": 249,
+   "w": 564,
+   "h": 197
+  },
+  "main a[href='/onboarding']": {
+   "x": 284,
+   "y": 589,
+   "w": 161,
+   "h": 48
+  }
+ },
+ "home-problem": {
+  "section:nth-of-type(2) ol": {
+   "x": 344,
+   "y": 372,
+   "w": 1232,
+   "h": 182
+  },
+  "section:nth-of-type(2) h2": {
+   "x": 344,
+   "y": 128,
+   "w": 768,
+   "h": 120
+  }
+ },
+ "home-how": {
+  "#how-it-works figure": {
+   "x": 920,
+   "y": 360,
+   "w": 656,
+   "h": 504
+  },
+  "#how-it-works ol": {
+   "x": 344,
+   "y": 432,
+   "w": 536,
+   "h": 360
+  }
+ },
+ "onb-city": {
+  "main form": {
+   "x": 592,
+   "y": 136,
+   "w": 736,
+   "h": 376
+  }
+ },
+ "onb-work": {
+  "main form": {
+   "x": 592,
+   "y": 136,
+   "w": 736,
+   "h": 326
+  }
+ },
+ "onb-date": {
+  "main form": {
+   "x": 592,
+   "y": 136,
+   "w": 736,
+   "h": 326
+  }
+ },
+ "onb-budget": {
+  "main form": {
+   "x": 592,
+   "y": 136,
+   "w": 736,
+   "h": 444
+  }
+ },
+ "onb-priorities": {
+  "main form": {
+   "x": 592,
+   "y": 136,
+   "w": 736,
+   "h": 452
+  }
+ },
+ "dashboard": {
+  "main section:nth-of-type(1)": {
+   "x": 344,
+   "y": 129,
+   "w": 1232,
+   "h": 288
+  },
+  "#video-h": {
+   "x": 376,
+   "y": 620,
+   "w": 458,
+   "h": 36
+  }
+ },
+ "explore-stays": {
+  "main article": {
+   "x": 636,
+   "y": 361,
+   "w": 300,
+   "h": 475
+  },
+  "aside[aria-label='Filters']": {
+   "x": 344,
+   "y": 325,
+   "w": 260,
+   "h": 1577
+  },
+  "[data-testid='result-count']": {
+   "x": 636,
+   "y": 325,
+   "w": 940,
+   "h": 20
+  }
+ },
+ "explore-food": {
+  "main article": {
+   "x": 636,
+   "y": 361,
+   "w": 300,
+   "h": 433
+  }
+ },
+ "explore-transport": {
+  "main article": {
+   "x": 676,
+   "y": 305,
+   "w": 900,
+   "h": 172
+  },
+  "main aside": {
+   "x": 344,
+   "y": 305,
+   "w": 300,
+   "h": 336
+  }
+ },
+ "my-plan": {
+  "main ol > li": {
+   "x": 344,
+   "y": 257,
+   "w": 860,
+   "h": 222
+  },
+  "main aside": {
+   "x": 1236,
+   "y": 257,
+   "w": 340,
+   "h": 613
+  }
+ },
+ "budget": {
+  "main [role='img']": {
+   "x": 376,
+   "y": 415,
+   "w": 619,
+   "h": 48
+  },
+  "main table": {
+   "x": 376,
+   "y": 511,
+   "w": 619,
+   "h": 304
+  },
+  "main .grid > div:nth-child(2) > div": {
+   "x": 1051,
+   "y": 281,
+   "w": 525,
+   "h": 112
+  }
+ },
+ "checklist": {
+  "main aside": {
+   "x": 1256,
+   "y": 257,
+   "w": 320,
+   "h": 478
+  },
+  "main section": {
+   "x": 344,
+   "y": 317,
+   "w": 888,
+   "h": 149
+  }
+ },
+ "compare": {
+  "main table": {
+   "x": 344,
+   "y": 257,
+   "w": 1232,
+   "h": 588
+  }
+ },
+ "dashboard-widgets": {
+  "main > div > div > div:nth-of-type(3)": {
+   "x": 1176,
+   "y": 101,
+   "w": 400,
+   "h": 321
+  }
+ }
+}

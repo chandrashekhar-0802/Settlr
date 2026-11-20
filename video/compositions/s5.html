@@ -1,0 +1,38 @@
+<template>
+  <style>
+@font-face { font-family: "Jakarta"; src: url("assets/fonts/PlusJakartaSans-latin.woff2") format("woff2"); font-weight: 200 800; }
+#root { position: absolute; inset: 0; background: #F4F9FC; font-family: "Jakarta", sans-serif; overflow: hidden; }
+.deco { position: absolute; border-radius: 28px; }
+.win { position: absolute; left: 240px; top: 50px; width: 1440px; height: 854px; border-radius: 22px; background: #fff; overflow: hidden;
+  box-shadow: 0 2px 6px rgb(23 40 58 / .06), 0 40px 80px -30px rgb(23 40 58 / .35); }
+.shot { position: absolute; inset: 0; }
+.bar { position: absolute; left: 0; top: 0; right: 0; height: 44px; background: #EEF3F8; display: flex; align-items: center; gap: 8px; padding: 0 18px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.url { margin-left: 18px; height: 30px; padding: 0 18px; border-radius: 15px; background: #fff; color: #4A5A6B; font-size: 18px; font-weight: 600; display: flex; align-items: center; }
+.vp { position: absolute; left: 0; top: 44px; width: 1440px; height: 810px; overflow: hidden; }
+.cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+.cam img, .cam video { width: 1920px; height: 1080px; display: block; }
+</style>
+  <div id="root" data-composition-id="s5" data-width="1920" data-height="1080">
+    <div id="s5-d1" class="deco" data-layout-ignore style="left:96px;top:690px;width:120px;height:120px;background:#17283A;"></div>
+    <div id="s5-d2" class="deco" data-layout-ignore style="left:1736px;top:120px;width:84px;height:84px;background:#F36A5B;"></div>
+    <div id="s5-d3" class="deco" data-layout-ignore style="left:1760px;top:760px;width:56px;height:56px;background:#F6C653;border-radius:16px;"></div>
+    <div id="s5-win" class="win">
+      <div id="s5-shot0" class="clip shot" data-start="0" data-duration="10.16">
+        <div class="bar"><span class="dot" style="background:#F36A5B"></span><span class="dot" style="background:#F6C653"></span><span class="dot" style="background:#3FAE8C"></span><span class="url" data-layout-ignore>settlr · /my-plan</span></div>
+        <div class="vp"><div id="s5-cam0" class="cam"><img src="assets/screens/my-plan.jpg" alt="" /></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#s5-win", { y: 0 }, 0);
+    tl.fromTo("#s5-d1", { y: 0, rotation: 8 }, { y: -24, rotation: 14, duration: 10.16, ease: "none" }, 0);
+    tl.fromTo("#s5-d2", { y: 0, rotation: -10 }, { y: 30, rotation: 2, duration: 10.16, ease: "none" }, 0);
+    tl.fromTo("#s5-d3", { y: 0, rotation: 20 }, { y: -18, rotation: 40, duration: 10.16, ease: "none" }, 0);
+    tl.set("#s5-cam0", { x: -804, y: -254, scale: 1.1688 }, 0);
+    tl.to("#s5-cam0", { x: -491, y: -310, scale: 1.5652, duration: 0.9, ease: "power3.inOut" }, 5.25);
+    tl.to("#s5-cam0", { scale: 1.6043, x: -509, y: -320, duration: 4.01, ease: "none" }, 6.15);
+    window.__timelines["s5"] = tl;
+  </script>
+</template>

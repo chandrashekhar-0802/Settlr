@@ -1,0 +1,42 @@
+<template>
+  <style>
+  @font-face { font-family: "Jakarta"; src: url("assets/fonts/PlusJakartaSans-latin.woff2") format("woff2"); font-weight: 200 800; }
+  #root { position: absolute; inset: 0; background: #17283A; font-family: "Jakarta", sans-serif; overflow: hidden; color: #fff; }
+  #s7-mark { position: absolute; left: 50%; top: 250px; width: 150px; height: 150px; margin-left: -75px; }
+  #s7-word { position: absolute; left: 0; right: 0; top: 420px; text-align: center; font-size: 104px; font-weight: 800; letter-spacing: -0.04em; }
+  #s7-tag { position: absolute; left: 0; right: 0; top: 570px; text-align: center; font-size: 46px; font-weight: 700; letter-spacing: -0.02em; }
+  #s7-tag span { display: inline-block; }
+  #s7-cta { position: absolute; left: 0; right: 0; top: 690px; text-align: center; }
+  #s7-pill { display: inline-block; padding: 18px 34px; border-radius: 16px; background: #F36A5B; font-size: 30px; font-weight: 700; }
+  #s7-note { position: absolute; left: 0; right: 0; top: 800px; text-align: center; font-size: 28px; color: rgb(255 255 255 / .6); font-weight: 600; }
+  .s7-sq { position: absolute; border-radius: 40px; }
+  </style>
+  <div id="root" data-composition-id="s7" data-width="1920" data-height="1080">
+    <div id="s7-sq1" class="s7-sq" data-layout-ignore style="left:-60px;top:80px;width:260px;height:260px;background:rgb(104 121 222 / .35);"></div>
+    <div id="s7-sq2" class="s7-sq" data-layout-ignore style="left:1700px;top:760px;width:180px;height:180px;background:rgb(243 106 91 / .45);"></div>
+    <svg id="s7-mark" viewBox="0 0 32 32" aria-hidden="true">
+      <path d="M16 3 29 10.5v11L16 29 3 21.5v-11Z" fill="#2A3D52" />
+      <path d="M16 3 29 10.5 16 18 3 10.5Z" fill="#3A5068" />
+      <path d="M9 15.2 16 11l7 4.2v1.9L16 13 9 17.1Z" fill="#F36A5B" />
+      <path d="M11.5 17.6 16 15l4.5 2.6v4.6L16 24.8l-4.5-2.6Z" fill="#fff" />
+      <circle cx="16" cy="19.6" r="1.25" fill="#6879DE" />
+    </svg>
+    <div id="s7-word">Settlr<span style="color:#F36A5B">.</span></div>
+    <div id="s7-tag"><span id="s7-t1">Your new job.</span> <span id="s7-t2">Your new city.</span> <span id="s7-t3" style="color:#9AA9F0">Everything sorted.</span></div>
+    <div id="s7-cta"><span id="s7-pill">Create your plan →</span></div>
+    <div id="s7-note">Launching in Pune</div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.fromTo("#s7-mark", { scale: 0.6, opacity: 0, y: 20 }, { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.6)" }, 0.88);
+    tl.fromTo("#s7-word", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, 1.13);
+    tl.fromTo("#s7-t1", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 1.56);
+    tl.fromTo("#s7-t2", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 2.29);
+    tl.fromTo("#s7-t3", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, 3.23);
+    tl.fromTo("#s7-pill", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, 3.58);
+    tl.fromTo("#s7-note", { opacity: 0 }, { opacity: 1, duration: 0.5 }, 3.83);
+    tl.fromTo("#s7-sq1", { rotation: 10, y: 0 }, { rotation: 18, y: 30, duration: 6.00, ease: "none" }, 0);
+    tl.fromTo("#s7-sq2", { rotation: -8, y: 0 }, { rotation: 6, y: -26, duration: 6.00, ease: "none" }, 0);
+    window.__timelines["s7"] = tl;
+  </script>
+</template>

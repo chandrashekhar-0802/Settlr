@@ -9,7 +9,7 @@ import { useSettlr } from "@/lib/store";
 import type { Listing, Need } from "@/lib/types";
 import { RequireProfile } from "./RequireProfile";
 import { usePlan, useProgress } from "./usePlan";
-import { VideoPlaceholder } from "./VideoPlaceholder";
+import { ExplainerVideo } from "./ExplainerVideo";
 
 const MAIN: { slot: Need | "essentials-group"; title: string; icon: IconName; href: string; tone: string }[] = [
   { slot: "accommodation", title: "Find your stay", icon: "home", href: "/explore/accommodation", tone: "bg-blue-soft text-blue" },
@@ -94,7 +94,7 @@ function Dashboard({ listings }: { listings: Listing[] }) {
       </section>
 
       {/* Video */}
-      <VideoPlaceholder />
+      <ExplainerVideo />
 
       {/* Main cards */}
       <section aria-labelledby="main-h">

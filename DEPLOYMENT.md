@@ -67,3 +67,15 @@ Project → Settings → Domains → add your domain and follow the DNS instruct
 - **OpenStreetMap's public tile server** is not meant for production traffic; switch to a tile provider with an SLA (MapTiler, Stadia, Thunderforest, or self-hosted) and keep the attribution.
 - **Supabase free projects pause after inactivity** and have limited auth emails; upgrade or configure SMTP.
 - The in-memory rate limiter is per serverless instance; use a shared store (e.g. Upstash Redis) at scale.
+
+## Explainer video
+
+`public/video/settlr-explainer.mp4` (≈6 MB, H.264/AAC, `faststart`), its poster and `settlr-explainer.vtt` captions ship with the site and are served by Vercel's CDN with byte-range support, so they stream on iOS, Android and desktop. Nothing extra to configure. To replace it, re-encode the HyperFrames render with:
+
+```powershell
+ffmpeg -i video/renders/settlr-explainer.mp4 -t 60 -c:v libx264 -preset slow -crf 24 -pix_fmt yuv420p -movflags +faststart -af "loudnorm=I=-14:TP=-1.5:LRA=11" -c:a aac -b:a 128k public/video/settlr-explainer.mp4
+```
+
+## Resend sender
+
+`RESEND_FROM=Settlr <onboarding@resend.dev>` works immediately but Resend only delivers it to your own Resend account address. To email real users, verify your domain in Resend (add its DNS records) and change `RESEND_FROM` to an address on that domain.

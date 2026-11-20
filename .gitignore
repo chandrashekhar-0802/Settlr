@@ -45,3 +45,14 @@ next-env.d.ts
 /playwright-report/
 /shots/
 !.env.example
+
+# local review files
+/video-review/
+
+# HyperFrames render output and caches (the web-optimised MP4 lives in public/video)
+/video/renders/
+/video/.hyperframes/
+/video/node_modules/
+# Regenerable intermediate audio (script/build-timing.mjs, script/gen-music.py); compressed versions are committed
+/video/assets/music/*.wav
+/video/assets/vo/voiceover.wav

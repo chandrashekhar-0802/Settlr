@@ -1,0 +1,44 @@
+<template>
+  <style>
+@font-face { font-family: "Jakarta"; src: url("assets/fonts/PlusJakartaSans-latin.woff2") format("woff2"); font-weight: 200 800; }
+#root { position: absolute; inset: 0; background: #F4F9FC; font-family: "Jakarta", sans-serif; overflow: hidden; }
+.deco { position: absolute; border-radius: 28px; }
+.win { position: absolute; left: 240px; top: 50px; width: 1440px; height: 854px; border-radius: 22px; background: #fff; overflow: hidden;
+  box-shadow: 0 2px 6px rgb(23 40 58 / .06), 0 40px 80px -30px rgb(23 40 58 / .35); }
+.shot { position: absolute; inset: 0; }
+.bar { position: absolute; left: 0; top: 0; right: 0; height: 44px; background: #EEF3F8; display: flex; align-items: center; gap: 8px; padding: 0 18px; }
+.dot { width: 12px; height: 12px; border-radius: 50%; }
+.url { margin-left: 18px; height: 30px; padding: 0 18px; border-radius: 15px; background: #fff; color: #4A5A6B; font-size: 18px; font-weight: 600; display: flex; align-items: center; }
+.vp { position: absolute; left: 0; top: 44px; width: 1440px; height: 810px; overflow: hidden; }
+.cam { position: absolute; left: 0; top: 0; width: 1920px; height: 1080px; transform-origin: 0 0; }
+.cam img, .cam video { width: 1920px; height: 1080px; display: block; }
+</style>
+  <div id="root" data-composition-id="s6" data-width="1920" data-height="1080">
+    <div id="s6-d1" class="deco" data-layout-ignore style="left:96px;top:690px;width:120px;height:120px;background:#17283A;"></div>
+    <div id="s6-d2" class="deco" data-layout-ignore style="left:1736px;top:120px;width:84px;height:84px;background:#F36A5B;"></div>
+    <div id="s6-d3" class="deco" data-layout-ignore style="left:1760px;top:760px;width:56px;height:56px;background:#F6C653;border-radius:16px;"></div>
+    <div id="s6-win" class="win">
+      <div id="s6-shot0" class="clip shot" data-start="0" data-duration="2.87">
+        <div class="bar"><span class="dot" style="background:#F36A5B"></span><span class="dot" style="background:#F6C653"></span><span class="dot" style="background:#3FAE8C"></span><span class="url" data-layout-ignore>settlr · /checklist</span></div>
+        <div class="vp"><div id="s6-cam0" class="cam"><img src="assets/screens/checklist.jpg" alt="" /></div></div>
+      </div>
+      <div id="s6-shot1" class="clip shot" data-start="2.87" data-duration="4.05">
+        <div class="bar"><span class="dot" style="background:#F36A5B"></span><span class="dot" style="background:#F6C653"></span><span class="dot" style="background:#3FAE8C"></span><span class="url" data-layout-ignore>settlr · /dashboard</span></div>
+        <div class="vp"><div id="s6-cam1" class="cam"><img src="assets/screens/dashboard.jpg" alt="" /></div></div>
+      </div>
+    </div>
+  </div>
+  <script>
+    const tl = gsap.timeline({ paused: true });
+    tl.set("#s6-win", { y: 0 }, 0);
+    tl.fromTo("#s6-d1", { y: 0, rotation: 8 }, { y: -24, rotation: 14, duration: 6.92, ease: "none" }, 0);
+    tl.fromTo("#s6-d2", { y: 0, rotation: -10 }, { y: 30, rotation: 2, duration: 6.92, ease: "none" }, 0);
+    tl.fromTo("#s6-d3", { y: 0, rotation: 20 }, { y: -18, rotation: 40, duration: 6.92, ease: "none" }, 0);
+    tl.set("#s6-cam0", { x: -367, y: -184, scale: 1.1321 }, 0);
+    tl.to("#s6-cam0", { scale: 1.1604, x: -385, y: -194, duration: 2.87, ease: "none" }, 0.00);
+    tl.set("#s6-cam1", { x: 0, y: 0, scale: 0.75 }, 2.87);
+    tl.to("#s6-cam1", { x: -350, y: 0, scale: 1.1146, duration: 0.9, ease: "power3.inOut" }, 4.07);
+    tl.to("#s6-cam1", { scale: 1.1425, x: -368, y: -10, duration: 1.95, ease: "none" }, 4.97);
+    window.__timelines["s6"] = tl;
+  </script>
+</template>

@@ -48,7 +48,9 @@ test("onboarding validates and produces a dashboard plan", async ({ page }) => {
   await onboard(page);
   await expect(page.getByRole("heading", { name: "Welcome to your new beginning." })).toBeVisible();
   await expect(page.getByRole("heading", { name: "See how Settlr works" })).toBeVisible();
-  await expect(page.getByRole("button", { name: /Play explainer video \(coming soon\)/ })).toBeDisabled();
+  const video = page.locator("video");
+  await expect(video).toHaveAttribute("poster", "/video/settlr-explainer-poster.jpg");
+  expect(await video.evaluate((v: HTMLVideoElement) => v.autoplay)).toBe(false);
   await expect(page.getByText("Hinjewadi Phase 1").first()).toBeVisible();
 });
 
