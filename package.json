@@ -11,7 +11,8 @@
     "test": "vitest run",
     "test:e2e": "playwright test",
     "check": "npm run lint && npm run typecheck && npm run test",
-    "test:rls": "node tests/rls.mjs supabase/migrations/0001_init.sql supabase/seed.sql"
+    "test:rls": "node tests/rls.mjs supabase/migrations/0001_init.sql supabase/seed.sql",
+    "db:setup": "node scripts/db-setup.mjs"
   },
   "dependencies": {
     "@react-three/drei": "^10.7.9",
@@ -38,6 +39,7 @@
     "@types/three": "^0.187.0",
     "eslint": "^9",
     "eslint-config-next": "16.4.6",
+    "pg": "^8.23.1",
     "tailwindcss": "4.3.3",
     "typescript": "^5",
     "vitest": "^5.1.1"
