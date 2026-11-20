@@ -1,6 +1,6 @@
 "use client";
 
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import { Button } from "@/components/ui";
 import { roadKm } from "@/lib/commute";
 import { SLOT_KINDS } from "@/lib/plan";
@@ -40,8 +40,37 @@ export function ServiceActions({ l }: { l: Listing }) {
           </Button>
         </div>
       </div>
+      <ReportLink id={l.id} />
       <InquiryDialog ref={inquiry} />
       <CompareTray />
     </>
+  );
+}
+
+function ReportLink({ id }: { id: string }) {
+  const [open, setOpen] = useState(false);
+  const [msg, setMsg] = useState("");
+  if (!open)
+    return (
+      <button type="button" onClick={() => setOpen(true)} className="mt-4 text-xs font-semibold text-muted underline underline-offset-2 hover:text-coral">
+        Report this listing
+      </button>
+    );
+  return (
+    <form
+      className="mt-4 space-y-2"
+      onSubmit={async (e) => {
+        e.preventDefault();
+        const reason = String(new FormData(e.currentTarget).get("reason") ?? "");
+        const res = await fetch("/api/reports", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ listingId: id, reason }) });
+        const j = await res.json().catch(() => ({}));
+        setMsg(res.ok ? (j.stored ? "Thanks — the Settlr team will review this listing." : "Demo mode: report validated but not sent anywhere.") : j.error ?? "Something went wrong.");
+      }}
+    >
+      <label className="block text-xs font-semibold" htmlFor="reason">What&apos;s wrong with this listing?</label>
+      <textarea id="reason" name="reason" rows={2} maxLength={500} className="w-full rounded-xl p-2 text-sm ring-1 ring-line" />
+      <Button type="submit" variant="secondary">Send report</Button>
+      {msg && <p role="status" className="text-xs text-muted">{msg}</p>}
+    </form>
   );
 }
