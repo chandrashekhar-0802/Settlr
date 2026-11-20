@@ -1,8 +1,8 @@
 // One-time database setup for connected mode: npm run db:setup
 // Reads SUPABASE_DB_URL from .env.local (Supabase → Connect → Session pooler URI with your DB password),
-// applies supabase/migrations/0001_init.sql (skipped if already applied), loads the DEMO seed, then verifies.
+// applies supabase/migrations (0001 skipped if already applied; later files are idempotent), loads the DEMO seed, verifies.
 // The app itself never uses this URL; delete it from .env.local afterwards.
-import { readFileSync } from "node:fs";
+import { readdirSync, readFileSync } from "node:fs";
 import pg from "pg";
 
 const env = Object.fromEntries(
@@ -22,6 +22,11 @@ if (exists) console.log("schema already present — skipping migration");
 else {
   await db.query(readFileSync("supabase/migrations/0001_init.sql", "utf8"));
   console.log("migration applied");
+}
+// Later migrations are written to be idempotent, so they always run.
+for (const f of readdirSync("supabase/migrations").filter((f) => f.endsWith(".sql") && !f.startsWith("0001")).sort()) {
+  await db.query(readFileSync(`supabase/migrations/${f}`, "utf8"));
+  console.log("applied", f);
 }
 await db.query(readFileSync("supabase/seed.sql", "utf8"));
 const n = (await db.query("select count(*)::int n from public.listings")).rows[0].n;
