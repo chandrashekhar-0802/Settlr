@@ -37,9 +37,9 @@ function Budget({ listings }: { listings: Listing[] }) {
   return (
     <>
       <PageHeader eyebrow="Budget planner" title="Where your money goes" body="Monthly recurring costs, one-time setup and refundable deposits are kept separate. Change any service in your plan and this page updates." />
-      <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[1.3fr_1fr] [&>*]:min-w-0">
         <Card className="p-6 sm:p-8">
-          <div className="flex flex-wrap items-end justify-between gap-4">
+          <div className="flex flex-wrap items-end justify-between gap-4 [&_input]:max-w-full">
             <form
               className="flex items-end gap-2"
               onSubmit={(e) => {
@@ -75,13 +75,14 @@ function Budget({ listings }: { listings: Listing[] }) {
               ))}
             </div>
             <div className="relative mt-1 h-5 text-[11px] text-muted">
-              <span className="absolute -translate-x-1/2 border-l border-navy/40 pl-1" style={{ left: `${(p.budget / scale) * 100}%` }}>
+              <span className={`absolute border-navy/40 ${p.budget / scale > 0.85 ? "-translate-x-full border-r pr-1" : "border-l pl-1"}`} style={{ left: `${(p.budget / scale) * 100}%` }}>
                 Budget
               </span>
             </div>
           </div>
 
-          <table className="mt-6 w-full text-sm">
+          <div className="relative mt-6 overflow-x-auto">
+          <table className="w-full text-sm">
             <caption className="sr-only">Monthly costs by category</caption>
             <thead>
               <tr className="text-left text-xs text-muted">
@@ -112,7 +113,7 @@ function Budget({ listings }: { listings: Listing[] }) {
                         {l.optional && <span className="text-xs text-muted">(optional)</span>}
                       </span>
                     </td>
-                    <td className="max-w-[12rem] truncate py-2.5 text-muted">{l.coveredBy ? "Included in stay" : l.listing?.name ?? "—"}</td>
+                    <td className="max-w-[6.5rem] truncate py-2.5 pr-2 text-muted sm:max-w-[12rem]">{l.coveredBy ? "Included in stay" : l.listing?.name ?? "—"}</td>
                     <td className="py-2.5 text-right font-semibold">{inr(l.monthly)}</td>
                     <td className="py-2.5 text-right text-muted">{counted && monthly ? `${Math.round((l.monthly / monthly) * 100)}%` : "—"}</td>
                   </tr>
@@ -130,6 +131,7 @@ function Budget({ listings }: { listings: Listing[] }) {
               </tr>
             </tfoot>
           </table>
+          </div>
         </Card>
 
         <div className="space-y-4">

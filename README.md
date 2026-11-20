@@ -25,3 +25,29 @@ Runs in **demo mode** without any keys. See [SETUP.md](SETUP.md) for Supabase, [
 ## Stack
 
 Next.js 16 · React 19 · TypeScript (strict) · Tailwind CSS 4 · Three.js / React Three Fiber / Drei · Lenis · Leaflet + OpenStreetMap · Supabase (optional) · zod · Vitest · Playwright
+
+## Routes
+
+| Route | What it is |
+|---|---|
+| `/` | Landing page with the 3D city hero and product story |
+| `/onboarding` | 6-step relocation setup → plan generation |
+| `/dashboard` | Personalised dashboard (plan summary, costs, tasks, explainer slot) |
+| `/my-plan` | Explainable plan: swap / remove any service, totals recalculate |
+| `/budget` | Budget planner: monthly vs one-time vs deposits vs optional |
+| `/explore`, `/explore/accommodation`, `/explore/food`, `/explore/essentials` | Search, filters, sort, pagination, list/map |
+| `/explore/transport` | Commute estimates with stated method |
+| `/services/[id]` | Service detail, inquiry, save, compare, report |
+| `/saved`, `/compare`, `/checklist`, `/profile`, `/settings` | Shortlist, side-by-side comparison, dated checklist, profile, data export/deletion |
+| `/login`, `/sign-up`, `/reset-password`, `/update-password` | Supabase auth (connected mode) |
+| `/provider/apply`, `/for-employers`, `/help`, `/about`, `/contact`, `/privacy`, `/terms` | Public pages |
+| `/admin` | Admin (server + RLS enforced; locked in demo mode) |
+
+## Quality checks
+
+```powershell
+npm run check       # eslint + tsc + vitest (engine, commute, filters, checklist)
+npm run test:rls    # schema + row-level-security checks against in-memory Postgres
+npm run build
+npm run test:e2e    # Playwright journeys, desktop + mobile
+```

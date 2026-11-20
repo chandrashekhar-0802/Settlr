@@ -21,7 +21,7 @@ for (const w of widths) {
     await p.goto(base + r, { waitUntil: "networkidle" });
     await p.waitForTimeout(r === "/" ? 2500 : 600);
     const overflow = await p.evaluate(() => document.documentElement.scrollWidth - document.documentElement.clientWidth);
-    const name = `shots/${w}${r.replaceAll("/", "_") || "_home"}.png`;
+    const name = `shots/${w}${r === "/" ? "_home" : r.replaceAll("/", "_")}.png`;
     await p.screenshot({ path: name, fullPage: true });
     console.log(`${w} ${r} overflow=${overflow}${errs.length ? " ERR " + errs.join(" | ") : ""}`);
     errs.length = 0;

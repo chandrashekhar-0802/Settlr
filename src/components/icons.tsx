@@ -43,10 +43,3 @@ export function Icon({ name, size = 20, className = "" }: { name: IconName; size
     </svg>
   );
 }
-
-export const KIND_ICON: Record<string, IconName> = {
-  pg: "home", flat: "building", hostel: "home",
-  tiffin: "food", mess: "food", "home-meals": "food", "meal-subscription": "food",
-  metro: "bus", bus: "bus", "bike-rental": "bus", "shared-ride": "bus", cab: "bus", walk: "pin",
-  wifi: "wifi", laundry: "laundry", cleaning: "sparkle", furniture: "sofa", moving: "truck", grocery: "basket", household: "home", maintenance: "edit",
-};

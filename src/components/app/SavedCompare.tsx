@@ -8,9 +8,9 @@ import { InquiryDialog, type InquiryHandle } from "@/components/listing/InquiryD
 import { CardSkeleton, KIND_LABEL, ListingCard } from "@/components/listing/ListingCard";
 import { CompareTray } from "@/components/listing/CompareTray";
 import { roadKm } from "@/lib/commute";
-import { SLOT_KINDS } from "@/lib/plan";
+import { slotFor } from "@/lib/plan";
 import { useSettlr } from "@/lib/store";
-import type { Listing, Need } from "@/lib/types";
+import type { Listing } from "@/lib/types";
 
 export function SavedView({ listings }: { listings: Listing[] }) {
   const { state, ready } = useSettlr();
@@ -81,7 +81,7 @@ export function CompareView({ listings }: { listings: Listing[] }) {
       ) : (
         <>
           {mixed && <p className="mb-4 rounded-xl bg-sun-soft px-4 py-2 text-sm text-[#6b4f08]">You&apos;re comparing different categories — comparisons are most useful within one category.</p>}
-          <div className="overflow-x-auto rounded-[var(--radius-card)] bg-white shadow-soft ring-1 ring-line/70">
+          <div className="relative overflow-x-auto rounded-[var(--radius-card)] bg-white shadow-soft ring-1 ring-line/70">
             <table className="w-full min-w-[640px] text-sm">
               <thead>
                 <tr>
@@ -123,7 +123,7 @@ export function CompareView({ listings }: { listings: Listing[] }) {
                 <tr className="border-t border-line">
                   <td className="p-4" />
                   {items.map((l) => {
-                    const slot = (Object.keys(SLOT_KINDS) as Need[]).find((s) => SLOT_KINDS[s].includes(l.kind));
+                    const slot = slotFor(l.kind);
                     const inPlan = slot && state.choices[slot] === l.id;
                     return (
                       <td key={l.id} className="space-y-2 p-4">

@@ -20,6 +20,9 @@ export const SLOT_KINDS: Record<Need, Kind[]> = {
   essentials: ["grocery"],
 };
 
+/** Which plan slot a listing kind fills (undefined for kinds the planner doesn't use). */
+export const slotFor = (kind: Kind) => (Object.keys(SLOT_KINDS) as Need[]).find((s) => SLOT_KINDS[s].includes(kind));
+
 export const SLOT_LABEL: Record<Need, string> = {
   accommodation: "Stay",
   food: "Food",

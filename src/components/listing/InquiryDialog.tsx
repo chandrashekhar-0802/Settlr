@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useImperativeHandle, useRef, useState } from "react";
+import { useImperativeHandle, useRef, useState, type Ref } from "react";
 import { Button, Field, inputCls } from "@/components/ui";
 import { useSettlr } from "@/lib/store";
 import type { Listing } from "@/lib/types";
@@ -8,7 +8,7 @@ import type { Listing } from "@/lib/types";
 export type InquiryHandle = { open: (l: Listing) => void };
 
 /** Native modal <dialog>: focus, Esc and inert page come from the browser. */
-export const InquiryDialog = forwardRef<InquiryHandle>(function InquiryDialog(_, ref) {
+export function InquiryDialog({ ref }: { ref: Ref<InquiryHandle> }) {
   const dlg = useRef<HTMLDialogElement>(null);
   const { state, addInquiry, connected } = useSettlr();
   const [listing, setListing] = useState<Listing | null>(null);
@@ -127,4 +127,4 @@ export const InquiryDialog = forwardRef<InquiryHandle>(function InquiryDialog(_,
       )}
     </dialog>
   );
-});
+}

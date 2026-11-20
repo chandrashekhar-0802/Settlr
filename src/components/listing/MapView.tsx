@@ -35,7 +35,7 @@ export default function MapView({ items, workplace }: { items: Listing[]; workpl
         pts.push([l.lat, l.lng]);
       }
       if (workplace) {
-        L.marker([workplace.lat, workplace.lng], { icon: dot("#17283A", 20), title: `Workplace: ${workplace.name}` }).addTo(map).bindTooltip(`Work · ${workplace.name}`, { permanent: true, direction: "top", offset: [0, -10] });
+        L.marker([workplace.lat, workplace.lng], { icon: dot("#17283A", 20), title: `Workplace: ${workplace.name}` }).addTo(map).bindTooltip(Object.assign(document.createElement("span"), { textContent: `Work · ${workplace.name}` }), { permanent: true, direction: "top", offset: [0, -10] }); // DOM node, not HTML string: name is user input
         pts.push([workplace.lat, workplace.lng]);
       }
       if (pts.length > 1) map.fitBounds(pts, { padding: [40, 40], maxZoom: 14 });

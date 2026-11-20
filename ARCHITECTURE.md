@@ -53,3 +53,9 @@ User replacements are stored as `choices[slot] = listingId | "none"` and the pla
 - Admin = row in `admins`, which has no client write policy (set via SQL / service role). `is_admin()` is `security definer` and checked in RLS and on the server — never from user metadata.
 - Server routes validate with zod, cap field lengths, and rate-limit per IP (in-memory per instance — see note in code).
 - Login redirects only accept same-site relative paths.
+
+## Checkpoint reviews
+
+- **Ponytail audit (Phase 5):** removed a dead icon map and a duplicate screenshot script, merged a duplicated plan-slot lookup into `slotFor()`, dropped `forwardRef` (React 19 ref prop), un-exported an internal helper. Every remaining dependency maps to a requested feature.
+- **Security review (Phase 5):** fixed one self-XSS (user-typed workplace name passed to a Leaflet HTML tooltip — now a text node). No `dangerouslySetInnerHTML`; `npm audit` clean; no secrets in git; RLS verified by `npm run test:rls` (22 checks: cross-user isolation, anon limits, no self-admin, no self-verification, no self-approval, inquiry spoofing, account-deletion cascade).
+- **Performance (local, simulated 10 Mbps / 40 ms):** home LCP ≈ 0.5 s at 1440 and 390, CLS 0. The Three.js bundle loads after idle and only on capable desktop browsers; phones get a pre-rendered WebP of the scene.

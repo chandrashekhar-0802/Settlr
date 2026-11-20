@@ -27,7 +27,7 @@ export async function getListing(id: string) {
 }
 
 /** DB row (snake_case + jsonb attrs) → Listing */
-export function fromRow(r: Record<string, unknown>): Listing {
+function fromRow(r: Record<string, unknown>): Listing {
   const attrs = (r.attrs ?? {}) as Partial<Listing>;
   return {
     ...attrs,

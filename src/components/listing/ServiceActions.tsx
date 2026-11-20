@@ -3,9 +3,9 @@
 import { useRef, useState } from "react";
 import { Button } from "@/components/ui";
 import { roadKm } from "@/lib/commute";
-import { SLOT_KINDS } from "@/lib/plan";
+import { slotFor } from "@/lib/plan";
 import { MAX_COMPARE, useSettlr } from "@/lib/store";
-import type { Listing, Need } from "@/lib/types";
+import type { Listing } from "@/lib/types";
 import { InquiryDialog, type InquiryHandle } from "./InquiryDialog";
 import { CompareTray } from "./CompareTray";
 
@@ -14,7 +14,7 @@ export function ServiceActions({ l }: { l: Listing }) {
   const inquiry = useRef<InquiryHandle>(null);
   const saved = state.saved.includes(l.id);
   const comparing = state.compare.includes(l.id);
-  const slot = (Object.keys(SLOT_KINDS) as Need[]).find((s) => SLOT_KINDS[s].includes(l.kind));
+  const slot = slotFor(l.kind);
   const inPlan = slot && state.choices[slot] === l.id;
   const wp = state.profile?.workplace;
   return (
