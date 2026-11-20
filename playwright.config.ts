@@ -12,5 +12,5 @@ export default defineConfig({
     { name: "desktop", use: { ...devices["Desktop Chrome"], viewport: { width: 1440, height: 900 } } },
     { name: "mobile", use: { ...devices["Pixel 7"], viewport: { width: 390, height: 844 } } },
   ],
-  webServer: { command: `npx next start -p ${port}`, port, reuseExistingServer: true, timeout: 120_000 },
+  webServer: { command: `npx next start -p ${port}`, port, reuseExistingServer: true, timeout: 120_000, env: { RATE_LIMIT_OFF: "1" } },
 });

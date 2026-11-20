@@ -29,14 +29,20 @@ export type CommuteEstimate = {
   method: string;
 };
 
+/** Minutes spent waiting / walking to a stop / parking, per trip. */
+const WAIT_MIN: Record<string, number> = { bus: 12, metro: 12, "shared-ride": 8, cab: 6, "bike-rental": 2, walk: 0 };
+/** Convenience penalty for changes and crowding. */
 const TRANSFER_PENALTY: Record<string, number> = { bus: 12, metro: 10, "shared-ride": 4, cab: 0, "bike-rental": 0, walk: 0 };
+/** Minimum fare per trip in ₹ (short trips still cost this much). */
+const MIN_FARE: Record<string, number> = { cab: 100, "shared-ride": 30, bus: 10, metro: 10 };
 
 /** Pure estimate from stored coordinates and the mode's stated assumptions. Never a live travel time. */
 export function estimateCommute(mode: Listing, km: number): CommuteEstimate {
   const speed = mode.speedKmh ?? 20;
   const available = mode.maxKm == null || km <= mode.maxKm;
-  const minutes = Math.round((km / speed) * 60 + (TRANSFER_PENALTY[mode.kind] ?? 0) / 2);
-  const monthly = Math.round((mode.fixedMonthly ?? 0) + (mode.perKm ?? 0) * km * 2 * WORKDAYS_PER_MONTH);
+  const minutes = Math.round((km / speed) * 60 + (WAIT_MIN[mode.kind] ?? 0));
+  const perTrip = Math.max(MIN_FARE[mode.kind] ?? 0, (mode.perKm ?? 0) * km);
+  const monthly = Math.round((mode.fixedMonthly ?? 0) + perTrip * 2 * WORKDAYS_PER_MONTH);
   const convenience = available ? Math.max(5, Math.min(100, Math.round(100 - minutes * 1.1 - (TRANSFER_PENALTY[mode.kind] ?? 0)))) : 0;
   return {
     mode,
@@ -45,6 +51,6 @@ export function estimateCommute(mode: Listing, km: number): CommuteEstimate {
     monthly,
     convenience,
     available,
-    method: `Road distance ≈ straight line × ${ROAD_FACTOR}; ${speed} km/h average; ${mode.perKm ? `₹${mode.perKm}/km` : "no per-km cost"}${mode.fixedMonthly ? ` + ₹${mode.fixedMonthly}/month` : ""}; ${WORKDAYS_PER_MONTH} workdays, 2 trips/day.`,
+    method: `Road distance ≈ straight line × ${ROAD_FACTOR}; ${speed} km/h average + ${WAIT_MIN[mode.kind] ?? 0} min waiting; ${mode.perKm ? `₹${mode.perKm}/km` : "no per-km cost"}${MIN_FARE[mode.kind] ? ` (min ₹${MIN_FARE[mode.kind]}/trip)` : ""}${mode.fixedMonthly ? ` + ₹${mode.fixedMonthly}/month` : ""}; ${WORKDAYS_PER_MONTH} workdays, 2 trips/day.`,
   };
 }

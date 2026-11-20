@@ -25,10 +25,13 @@ const EMPTY: State = { profile: null, saved: [], compare: [], choices: {}, check
 const KEY = "settlr:v1";
 export const MAX_COMPARE = 4;
 
+/** A profile always has a checklist; regenerate defaults if one is missing. */
+const withChecklist = (s: State): State => (s.profile && !s.checklist ? { ...s, checklist: defaultChecklist(s.profile.moveDate) } : s);
+
 function load(): State {
   try {
     const raw = localStorage.getItem(KEY);
-    return raw ? { ...EMPTY, ...JSON.parse(raw) } : EMPTY;
+    return withChecklist(raw ? { ...EMPTY, ...JSON.parse(raw) } : EMPTY);
   } catch {
     return EMPTY;
   }
@@ -72,7 +75,7 @@ export function StoreProvider({ connected, children }: { connected: boolean; chi
         sb.from("checklist_items").select("id,title,category,due,done").eq("user_id", u.id).order("created_at"),
         sb.from("service_inquiries").select("id,listing_id,listing_name,message,created_at").eq("user_id", u.id).order("created_at", { ascending: false }),
       ]);
-      setState((prev) => ({
+      setState((prev) => withChecklist({
         ...prev,
         profile: p.data
           ? { city: p.data.city, workplace: p.data.workplace, moveDate: p.data.move_date, budget: p.data.budget, priorities: p.data.priorities, needs: p.data.needs, name: p.data.display_name ?? undefined }
@@ -84,6 +87,12 @@ export function StoreProvider({ connected, children }: { connected: boolean; chi
           ? i.data.map((r: { id: string; listing_id: string; listing_name: string; message: string; created_at: string }) => ({ id: r.id, listingId: r.listing_id, listingName: r.listing_name, message: r.message, createdAt: r.created_at, delivered: false }))
           : prev.inquiries,
       }));
+      // Guest who onboarded before signing up: push the local profile to the new account.
+      if (!p.data) {
+        const local = load().profile;
+        if (local)
+          await sb.from("relocation_profiles").upsert({ user_id: u.id, city: local.city, workplace: local.workplace, move_date: local.moveDate, budget: local.budget, priorities: local.priorities, needs: local.needs, display_name: local.name ?? null });
+      }
       setReady(true);
     };
     sb.auth.getUser().then(({ data }: { data: { user: User | null } }) => hydrate(data.user));

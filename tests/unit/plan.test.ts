@@ -1,6 +1,6 @@
 import { describe, expect, it } from "vitest";
 import { DEMO_LISTINGS } from "@/lib/demo-data";
-import { budgetFit, buildPlan, rankForSlot } from "@/lib/plan";
+import { budgetFit, buildPlan, rankCommutes, rankForSlot } from "@/lib/plan";
 import { estimateCommute, haversineKm, roadKm, WORKDAYS_PER_MONTH } from "@/lib/commute";
 import { applyFilters, EMPTY_FILTERS, PAGE_SIZE } from "@/lib/filters";
 import { defaultChecklist } from "@/lib/checklist";
@@ -41,7 +41,13 @@ describe("geo + commute", () => {
     const mode = { ...base, id: "m", kind: "bike-rental", category: "transport", perKm: 2, fixedMonthly: 1000, speedKmh: 20 } as Listing;
     const e = estimateCommute(mode, 10);
     expect(e.monthly).toBe(1000 + 2 * 10 * 2 * WORKDAYS_PER_MONTH);
-    expect(e.minutes).toBe(30);
+    expect(e.minutes).toBe(30 + 2); // ride + parking/wait
+  });
+  it("applies minimum fares, so a cab never wins a very short trip on cost", () => {
+    const cab = DEMO_LISTINGS.find((l) => l.kind === "cab")!;
+    expect(estimateCommute(cab, 0.5).monthly).toBe(100 * 2 * WORKDAYS_PER_MONTH);
+    const best = rankCommutes(DEMO_LISTINGS, 0.6, profile)[0];
+    expect(best.mode.kind).toBe("walk");
   });
   it("walking is unavailable beyond its range", () => {
     const walk = DEMO_LISTINGS.find((l) => l.kind === "walk")!;
