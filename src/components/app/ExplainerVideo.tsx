@@ -1,5 +1,5 @@
 /**
- * The 60-second Hinglish explainer, served from /public (Vercel CDN) so it plays on any device.
+ * The 60-second explainer, served from /public (Vercel CDN) so it plays on any device.
  * Native controls, no autoplay, preload="none" so it costs nothing until the user presses play,
  * playsInline for iOS, and a WebVTT captions track.
  */
@@ -11,7 +11,7 @@ export function ExplainerVideo() {
         <h2 id="video-h" className="mt-2 text-2xl font-extrabold sm:text-3xl">
           See how Settlr works
         </h2>
-        <p className="mt-2 text-muted">A one-minute walkthrough in Hinglish — from onboarding to your first week. Captions included.</p>
+        <p className="mt-2 text-muted">A one-minute walkthrough — from onboarding to your first week. Captions included.</p>
       </div>
       <div className="overflow-hidden rounded-3xl bg-navy ring-1 ring-line">
         <video
@@ -23,7 +23,7 @@ export function ExplainerVideo() {
           aria-describedby="video-h"
         >
           <source src="/video/settlr-explainer.mp4" type="video/mp4" />
-          <track kind="captions" src="/video/settlr-explainer.vtt" srcLang="hi" label="Hinglish" default />
+          <track kind="captions" src="/video/settlr-explainer.vtt" srcLang="en" label="English" default />
           Your browser can&apos;t play this video. <a href="/video/settlr-explainer.mp4">Download the explainer (MP4)</a>.
         </video>
       </div>

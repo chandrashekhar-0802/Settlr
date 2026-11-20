@@ -37,36 +37,36 @@ const S = {
   s1: [
     { img: "home-problem", url: "/", from: 0, to: null, moves: [
       [0, cam(rect("home-problem", "section:nth-of-type(2) h2"), 120, 1.3)],
-      [at("s1", "Lekin ab"), cam({ x: 344, y: 372, w: 640, h: 182 }, 50)],
-      [at("s1", "khaana"), cam({ x: 936, y: 372, w: 640, h: 182 }, 50)],
-      [at("s1", "sab kuch"), cam(rect("home-problem", "section:nth-of-type(2) ol"), 60)],
+      [at("s1", "But now"), cam({ x: 344, y: 372, w: 640, h: 182 }, 50)],
+      [at("s1", "food"), cam({ x: 936, y: 372, w: 640, h: 182 }, 50)],
+      [at("s1", "All on your own"), cam(rect("home-problem", "section:nth-of-type(2) ol"), 60)],
     ] },
   ],
   s2: [{ video: "assets/hero.mp4", url: "/", from: 0, to: null, moves: [
     [0, cam(null)],
-    [at("s2", "everything"), cam({ x: 284, y: 240, w: 1300, h: 420 }, 30)],
+    [at("s2", "Everything sorted"), cam({ x: 284, y: 240, w: 1300, h: 420 }, 30)],
     [at("s2", "Pune"), cam(null)],
   ] }],
   s3: [
     { img: "onb-city", url: "/onboarding", from: 0, moves: [[0, cam(rect("onb-city", "main form"), 30, 1.35)]] },
-    { img: "onb-work", url: "/onboarding", from: at("s3", "office"), moves: [[0, cam(rect("onb-work", "main form"), 30, 1.35)]] },
-    { img: "onb-date", url: "/onboarding", from: at("s3", "kab shift"), moves: [[0, cam(rect("onb-date", "main form"), 30, 1.35)]] },
-    { img: "onb-budget", url: "/onboarding", from: at("s3", "budget"), moves: [[0, cam(rect("onb-budget", "main form"), 30, 1.35)]] },
+    { img: "onb-work", url: "/onboarding", from: at("s3", "where your office"), moves: [[0, cam(rect("onb-work", "main form"), 30, 1.35)]] },
+    { img: "onb-date", url: "/onboarding", from: at("s3", "when you"), moves: [[0, cam(rect("onb-date", "main form"), 30, 1.35)]] },
+    { img: "onb-budget", url: "/onboarding", from: at("s3", "monthly budget"), moves: [[0, cam(rect("onb-budget", "main form"), 30, 1.35)]] },
   ],
   s4: [
     { img: "explore-stays", url: "/explore/accommodation", from: 0, moves: [[0, cam({ x: 600, y: 300, w: 1000, h: 560 }, 20)]] },
     { img: "explore-food", url: "/explore/food", from: at("s4", "tiffin"), moves: [[0, cam({ x: 600, y: 300, w: 1000, h: 560 }, 20)]] },
     { img: "explore-transport", url: "/explore/transport", from: at("s4", "commute"), moves: [[0, cam({ x: 344, y: 290, w: 1232, h: 560 }, 20)]] },
-    { img: "explore-stays", url: "/explore/accommodation", from: at("s4", "Filter"), moves: [
+    { img: "explore-stays", url: "/explore/accommodation", from: at("s4", "Filter them"), moves: [
       [0, cam({ x: 344, y: 300, w: 600, h: 560 }, 20)],
-      [at("s4", "save") - at("s4", "Filter"), cam(rect("explore-stays", "main article"), 30)],
+      [at("s4", "save them") - at("s4", "Filter them"), cam(rect("explore-stays", "main article"), 30)],
     ] },
-    { img: "compare", url: "/compare", from: at("s4", "compare kijiye"), moves: [[0, cam(rect("compare", "main table"), 20)]] },
+    { img: "compare", url: "/compare", from: at("s4", "compare them"), moves: [[0, cam(rect("compare", "main table"), 20)]] },
   ],
   s5: [
     { img: "my-plan", url: "/my-plan", from: 0, moves: [
       [0, cam(rect("my-plan", "main aside"), 40, 1.3)],
-      [at("s5", "PG mein"), cam({ x: 344, y: 257, w: 860, h: 400 }, 30)],
+      [at("s5", "If your PG"), cam({ x: 344, y: 257, w: 860, h: 400 }, 30)],
     ] },
   ],
   s6: [
@@ -181,13 +181,13 @@ function endHtml() {
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
-    tl.fromTo("#s7-mark", { scale: 0.6, opacity: 0, y: 20 }, { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.6)" }, ${Math.max(0.1, t("Settlr") - 0.1).toFixed(2)});
+    tl.fromTo("#s7-mark", { scale: 0.6, opacity: 0, y: 20 }, { scale: 1, opacity: 1, y: 0, duration: 0.6, ease: "back.out(1.6)" }, 0.3);
     tl.fromTo("#s7-word", { opacity: 0, y: 24 }, { opacity: 1, y: 0, duration: 0.6, ease: "power3.out" }, ${(t("Settlr") + 0.15).toFixed(2)});
-    tl.fromTo("#s7-t1", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ${t("Nayi job").toFixed(2)});
-    tl.fromTo("#s7-t2", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ${t("naya shehar").toFixed(2)});
-    tl.fromTo("#s7-t3", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ${t("sab kuch").toFixed(2)});
-    tl.fromTo("#s7-pill", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, ${(t("sab kuch") + 0.35).toFixed(2)});
-    tl.fromTo("#s7-note", { opacity: 0 }, { opacity: 1, duration: 0.5 }, ${(t("sab kuch") + 0.6).toFixed(2)});
+    tl.fromTo("#s7-t1", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ${t("Your new job").toFixed(2)});
+    tl.fromTo("#s7-t2", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ${t("Your new city").toFixed(2)});
+    tl.fromTo("#s7-t3", { opacity: 0, y: 16 }, { opacity: 1, y: 0, duration: 0.45, ease: "power3.out" }, ${t("Everything sorted").toFixed(2)});
+    tl.fromTo("#s7-pill", { opacity: 0, scale: 0.9 }, { opacity: 1, scale: 1, duration: 0.5, ease: "back.out(1.8)" }, ${(t("Everything sorted") + 0.35).toFixed(2)});
+    tl.fromTo("#s7-note", { opacity: 0 }, { opacity: 1, duration: 0.5 }, ${(t("Everything sorted") + 0.6).toFixed(2)});
     tl.fromTo("#s7-sq1", { rotation: 10, y: 0 }, { rotation: 18, y: 30, duration: ${sc.dur.toFixed(2)}, ease: "none" }, 0);
     tl.fromTo("#s7-sq2", { rotation: -8, y: 0 }, { rotation: 6, y: -26, duration: ${sc.dur.toFixed(2)}, ease: "none" }, 0);
     window.__timelines["s7"] = tl;
@@ -242,7 +242,7 @@ const sfx = [
   ...cuts.map((s, i) => ({ id: `sfx-cut${i}`, src: i % 2 ? "whoosh-short" : "whoosh", t: Math.max(0, s.start - 0.12), v: 0.35 })),
   // a soft click on each onboarding screen change
   ...S.s3.slice(1).map((sh, i) => ({ id: `sfx-click${i}`, src: "click-soft", t: scene("s3").start + sh.from, v: 0.5 })),
-  { id: "sfx-pop", src: "pop", t: scene("s7").start + at("s7", "sab kuch") + 0.35, v: 0.45 },
+  { id: "sfx-pop", src: "pop", t: scene("s7").start + at("s7", "Everything sorted") + 0.35, v: 0.45 },
 ];
 const audio = [
   `      <audio id="vo" class="clip" src="assets/vo/voiceover.m4a" data-start="0" data-duration="${T.total}" data-volume="1" data-track-index="10"></audio>`,
@@ -253,7 +253,7 @@ const audio = [
 writeFileSync(
   "index.html",
   `<!doctype html>
-<html lang="hi-Latn">
+<html lang="en-IN">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=1920, height=1080" />

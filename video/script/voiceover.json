@@ -1,9 +1,9 @@
 [
-  { "id": "s1", "slot": [0, 8],   "hi": "नई जॉब मिल गई? बधाई हो! लेकिन अब नया शहर, रहने की जगह, खाना, और ऑफिस तक का रास्ता... सब कुछ ख़ुद ढूँढना है।", "en": "Nayi job mil gayi? Badhaai ho! Lekin ab naya shehar, rehne ki jagah, khaana, aur office tak ka raasta... sab kuch khud dhoondhna hai." },
-  { "id": "s2", "slot": [8, 16],  "hi": "मिलिए सेटलर से। नई जॉब, नया शहर, एवरीथिंग सॉर्टेड। और शुरुआत हो रही है पुणे से।", "en": "Miliye Settlr se. Nayi job, naya shehar, everything sorted. Aur shuruaat ho rahi hai Pune se." },
-  { "id": "s3", "slot": [16, 25], "hi": "बस कुछ सवाल। किस शहर जा रहे हैं, ऑफिस कहाँ है, कब शिफ़्ट हो रहे हैं, और महीने का बजट कितना है।", "en": "Bas kuch sawaal. Kis shehar ja rahe hain, office kahaan hai, kab shift ho rahe hain, aur mahine ka budget kitna hai." },
-  { "id": "s4", "slot": [25, 38], "hi": "फिर सेटलर दिखाता है ऑफिस के पास पीजी और फ़्लैट्स, टिफ़िन सर्विस, और कम्यूट के ऑप्शन, दूरी और खर्चे के साथ। फ़िल्टर कीजिए, सेव कीजिए, और कम्पेयर कीजिए।", "en": "Phir Settlr dikhata hai office ke paas PG aur flats, tiffin services, aur commute ke options, doori aur kharche ke saath. Filter kijiye, save kijiye, aur compare kijiye." },
-  { "id": "s5", "slot": [38, 48], "hi": "आपका प्लान हर खर्चा अलग रखता है, मंथली, वन-टाइम, और डिपॉज़िट। पीजी में खाना शामिल है, तो टिफ़िन का पैसा दोबारा नहीं जुड़ता।", "en": "Aapka plan har kharcha alag rakhta hai: monthly, one-time, aur deposit. PG mein khaana shaamil hai, toh tiffin ka paisa dobaara nahi judta." },
-  { "id": "s6", "slot": [48, 55], "hi": "मूव डेट के हिसाब से चेकलिस्ट, और डैशबोर्ड पर पूरी तैयारी, एक नज़र में।", "en": "Move date ke hisaab se checklist, aur dashboard par poori taiyaari, ek nazar mein." },
-  { "id": "s7", "slot": [55, 60], "hi": "सेटलर। नई जॉब, नया शहर, सब कुछ सॉर्टेड।", "en": "Settlr. Nayi job, naya shehar, sab kuch sorted." }
+  { "id": "s1", "en": "Got the job? Congratulations! But now there's a whole new city to figure out. A place to stay, food, and the way to the office. All on your own." },
+  { "id": "s2", "en": "Meet Settlr. New job. New city. Everything sorted. Starting in Pune." },
+  { "id": "s3", "en": "Just answer a few questions: which city, where your office is, when you're moving, and your monthly budget." },
+  { "id": "s4", "en": "Settlr shows PGs and flats near your office, tiffin services, and commute options, with distance and cost. Filter them, save them, and compare them." },
+  { "id": "s5", "en": "Your plan keeps every cost separate: monthly, one-time, and deposits. If your PG includes meals, you never pay for a tiffin twice." },
+  { "id": "s6", "en": "A checklist built around your move date, and your whole move on one dashboard." },
+  { "id": "s7", "en": "Settlr. Your new job. Your new city. Everything sorted." }
 ]

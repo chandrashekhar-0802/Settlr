@@ -4,354 +4,354 @@
   {
    "id": "s1",
    "start": 0.3,
-   "dur": 9.472,
-   "en": "Nayi job mil gayi? Badhaai ho! Lekin ab naya shehar, rehne ki jagah, khaana, aur office tak ka raasta... sab kuch khud dhoondhna hai."
+   "dur": 9.173,
+   "en": "Got the job? Congratulations! But now there's a whole new city to figure out. A place to stay, food, and the way to the office. All on your own."
   },
   {
    "id": "s2",
-   "start": 10.222,
-   "dur": 6.421,
-   "en": "Miliye Settlr se. Nayi job, naya shehar, everything sorted. Aur shuruaat ho rahi hai Pune se."
+   "start": 11.073,
+   "dur": 4.245,
+   "en": "Meet Settlr. New job. New city. Everything sorted. Starting in Pune."
   },
   {
    "id": "s3",
-   "start": 17.093,
-   "dur": 7.189,
-   "en": "Bas kuch sawaal. Kis shehar ja rahe hain, office kahaan hai, kab shift ho rahe hain, aur mahine ka budget kitna hai."
+   "start": 16.919,
+   "dur": 5.931,
+   "en": "Just answer a few questions: which city, where your office is, when you're moving, and your monthly budget."
   },
   {
    "id": "s4",
-   "start": 24.733,
-   "dur": 11.968,
-   "en": "Phir Settlr dikhata hai office ke paas PG aur flats, tiffin services, aur commute ke options, doori aur kharche ke saath. Filter kijiye, save kijiye, aur compare kijiye."
+   "start": 24.449,
+   "dur": 9.877,
+   "en": "Settlr shows PGs and flats near your office, tiffin services, and commute options, with distance and cost. Filter them, save them, and compare them."
   },
   {
    "id": "s5",
-   "start": 37.151,
-   "dur": 9.707,
-   "en": "Aapka plan har kharcha alag rakhta hai: monthly, one-time, aur deposit. PG mein khaana shaamil hai, toh tiffin ka paisa dobaara nahi judta."
+   "start": 35.927,
+   "dur": 8.619,
+   "en": "Your plan keeps every cost separate: monthly, one-time, and deposits. If your PG includes meals, you never pay for a tiffin twice."
   },
   {
    "id": "s6",
-   "start": 47.307,
-   "dur": 5.717,
-   "en": "Move date ke hisaab se checklist, aur dashboard par poori taiyaari, ek nazar mein."
+   "start": 46.145,
+   "dur": 4.501,
+   "en": "A checklist built around your move date, and your whole move on one dashboard."
   },
   {
    "id": "s7",
-   "start": 54.987,
-   "dur": 3.413,
-   "en": "Settlr. Nayi job, naya shehar, sab kuch sorted."
+   "start": 55.136,
+   "dur": 3.264,
+   "en": "Settlr. Your new job. Your new city. Everything sorted."
   }
  ],
  "scenes": [
   {
    "id": "s1",
    "start": 0,
-   "dur": 9.997,
+   "dur": 10.273,
    "voStart": 0.3,
-   "voDur": 9.472
+   "voDur": 9.173
   },
   {
    "id": "s2",
-   "start": 9.997,
-   "dur": 6.871,
-   "voStart": 0.225,
-   "voDur": 6.421
+   "start": 10.273,
+   "dur": 5.846,
+   "voStart": 0.8,
+   "voDur": 4.245
   },
   {
    "id": "s3",
-   "start": 16.868,
-   "dur": 7.64,
-   "voStart": 0.225,
-   "voDur": 7.189
+   "start": 16.119,
+   "dur": 7.531,
+   "voStart": 0.8,
+   "voDur": 5.931
   },
   {
    "id": "s4",
-   "start": 24.508,
-   "dur": 12.418,
-   "voStart": 0.225,
-   "voDur": 11.968
+   "start": 23.65,
+   "dur": 11.477,
+   "voStart": 0.799,
+   "voDur": 9.877
   },
   {
    "id": "s5",
-   "start": 36.926,
-   "dur": 10.157,
-   "voStart": 0.225,
-   "voDur": 9.707
+   "start": 35.127,
+   "dur": 10.219,
+   "voStart": 0.8,
+   "voDur": 8.619
   },
   {
    "id": "s6",
-   "start": 47.083,
-   "dur": 6.922,
-   "voStart": 0.224,
-   "voDur": 5.717
+   "start": 45.346,
+   "dur": 7.545,
+   "voStart": 0.799,
+   "voDur": 4.501
   },
   {
    "id": "s7",
-   "start": 54.005,
-   "dur": 5.995,
-   "voStart": 0.982,
-   "voDur": 3.413
+   "start": 52.891,
+   "dur": 7.109,
+   "voStart": 2.245,
+   "voDur": 3.264
   }
  ],
  "captions": [
   {
    "id": "c0",
-   "text": "Nayi job mil gayi?",
+   "text": "Got the job?",
    "start": 0.3,
-   "end": 1.642
+   "end": 1.109
   },
   {
    "id": "c1",
-   "text": "Badhaai ho!",
-   "start": 1.642,
-   "end": 2.463
+   "text": "Congratulations!",
+   "start": 1.109,
+   "end": 2.189
   },
   {
    "id": "c2",
-   "text": "Lekin ab naya shehar,",
-   "start": 2.463,
-   "end": 4.029
+   "text": "But now there's a whole",
+   "start": 2.189,
+   "end": 3.74
   },
   {
    "id": "c3",
-   "text": "rehne ki jagah,",
-   "start": 4.029,
-   "end": 5.148
+   "text": "new city to figure out.",
+   "start": 3.74,
+   "end": 5.291
   },
   {
    "id": "c4",
-   "text": "khaana,",
-   "start": 5.148,
-   "end": 5.67
+   "text": "A place to stay,",
+   "start": 5.291,
+   "end": 6.37
   },
   {
    "id": "c5",
-   "text": "aur office tak ka raasta...",
-   "start": 5.67,
-   "end": 7.684
+   "text": "food,",
+   "start": 6.37,
+   "end": 6.708
   },
   {
    "id": "c6",
-   "text": "sab kuch khud dhoondhna hai.",
-   "start": 7.684,
-   "end": 9.772
+   "text": "and the way to the",
+   "start": 6.708,
+   "end": 7.922
   },
   {
    "id": "c7",
-   "text": "Miliye Settlr se.",
-   "start": 10.222,
-   "end": 11.462
+   "text": "office.",
+   "start": 7.922,
+   "end": 8.394
   },
   {
    "id": "c8",
-   "text": "Nayi job,",
-   "start": 11.462,
-   "end": 12.119
+   "text": "All on your own.",
+   "start": 8.394,
+   "end": 9.473
   },
   {
    "id": "c9",
-   "text": "naya shehar,",
-   "start": 12.119,
-   "end": 12.995
+   "text": "Meet Settlr.",
+   "start": 11.073,
+   "end": 11.869
   },
   {
    "id": "c10",
-   "text": "everything sorted.",
-   "start": 12.995,
-   "end": 14.308
+   "text": "New job.",
+   "start": 11.869,
+   "end": 12.4
   },
   {
    "id": "c11",
-   "text": "Aur shuruaat ho rahi hai",
-   "start": 14.308,
-   "end": 16.059
+   "text": "New city.",
+   "start": 12.4,
+   "end": 12.997
   },
   {
    "id": "c12",
-   "text": "Pune se.",
-   "start": 16.059,
-   "end": 16.643
+   "text": "Everything sorted.",
+   "start": 12.997,
+   "end": 14.19
   },
   {
    "id": "c13",
-   "text": "Bas kuch sawaal.",
-   "start": 17.093,
-   "end": 18.129
+   "text": "Starting in Pune.",
+   "start": 14.19,
+   "end": 15.318
   },
   {
    "id": "c14",
-   "text": "Kis shehar ja rahe hain,",
-   "start": 18.129,
-   "end": 19.684
+   "text": "Just answer a few questions:",
+   "start": 16.919,
+   "end": 18.531
   },
   {
    "id": "c15",
-   "text": "office kahaan hai,",
-   "start": 19.684,
-   "end": 20.849
+   "text": "which city,",
+   "start": 18.531,
+   "end": 19.165
   },
   {
    "id": "c16",
-   "text": "kab shift ho rahe hain,",
-   "start": 20.849,
-   "end": 22.339
+   "text": "where your office is,",
+   "start": 19.165,
+   "end": 20.374
   },
   {
    "id": "c17",
-   "text": "aur mahine ka budget kitna",
-   "start": 22.339,
-   "end": 24.023
+   "text": "when you're moving,",
+   "start": 20.374,
+   "end": 21.468
   },
   {
    "id": "c18",
-   "text": "hai.",
-   "start": 24.023,
-   "end": 24.282
+   "text": "and your monthly budget.",
+   "start": 21.468,
+   "end": 22.85
   },
   {
    "id": "c19",
-   "text": "Phir Settlr dikhata hai office",
-   "start": 24.733,
-   "end": 26.949
+   "text": "Settlr shows PGs and flats",
+   "start": 24.449,
+   "end": 26.27
   },
   {
    "id": "c20",
-   "text": "ke paas PG aur flats,",
-   "start": 26.949,
-   "end": 28.501
+   "text": "near your office,",
+   "start": 26.27,
+   "end": 27.461
   },
   {
    "id": "c21",
    "text": "tiffin services,",
-   "start": 28.501,
-   "end": 29.683
+   "start": 27.461,
+   "end": 28.582
   },
   {
    "id": "c22",
-   "text": "aur commute ke options,",
-   "start": 29.683,
-   "end": 31.382
+   "text": "and commute options,",
+   "start": 28.582,
+   "end": 29.983
   },
   {
    "id": "c23",
-   "text": "doori aur kharche ke saath.",
-   "start": 31.382,
-   "end": 33.377
+   "text": "with distance and cost.",
+   "start": 29.983,
+   "end": 31.594
   },
   {
    "id": "c24",
-   "text": "Filter kijiye,",
-   "start": 33.377,
-   "end": 34.411
+   "text": "Filter them,",
+   "start": 31.594,
+   "end": 32.435
   },
   {
    "id": "c25",
-   "text": "save kijiye,",
-   "start": 34.411,
-   "end": 35.297
+   "text": "save them,",
+   "start": 32.435,
+   "end": 33.135
   },
   {
    "id": "c26",
-   "text": "aur compare kijiye.",
-   "start": 35.297,
-   "end": 36.701
+   "text": "and compare them.",
+   "start": 33.135,
+   "end": 34.326
   },
   {
    "id": "c27",
-   "text": "Aapka plan har kharcha alag",
-   "start": 37.151,
-   "end": 39.137
+   "text": "Your plan keeps every cost",
+   "start": 35.927,
+   "end": 37.749
   },
   {
    "id": "c28",
-   "text": "rakhta hai:",
-   "start": 39.137,
-   "end": 39.945
+   "text": "separate:",
+   "start": 37.749,
+   "end": 38.38
   },
   {
    "id": "c29",
    "text": "monthly,",
-   "start": 39.945,
-   "end": 40.534
+   "start": 38.38,
+   "end": 38.94
   },
   {
    "id": "c30",
    "text": "one-time,",
-   "start": 40.534,
-   "end": 41.196
+   "start": 38.94,
+   "end": 39.571
   },
   {
    "id": "c31",
-   "text": "aur deposit.",
-   "start": 41.196,
-   "end": 42.078
+   "text": "and deposits.",
+   "start": 39.571,
+   "end": 40.482
   },
   {
    "id": "c32",
-   "text": "PG mein khaana shaamil hai,",
-   "start": 42.078,
-   "end": 44.064
+   "text": "If your PG includes meals,",
+   "start": 40.482,
+   "end": 42.304
   },
   {
    "id": "c33",
-   "text": "toh tiffin ka paisa dobaara",
-   "start": 44.064,
-   "end": 46.049
+   "text": "you never pay for a",
+   "start": 42.304,
+   "end": 43.635
   },
   {
    "id": "c34",
-   "text": "nahi judta.",
-   "start": 46.049,
-   "end": 46.858
+   "text": "tiffin twice.",
+   "start": 43.635,
+   "end": 44.546
   },
   {
    "id": "c35",
-   "text": "Move date ke hisaab se",
-   "start": 47.307,
-   "end": 48.899
+   "text": "A checklist built around your",
+   "start": 46.145,
+   "end": 47.885
   },
   {
    "id": "c36",
-   "text": "checklist,",
-   "start": 48.899,
-   "end": 49.623
+   "text": "move date,",
+   "start": 47.885,
+   "end": 48.486
   },
   {
    "id": "c37",
-   "text": "aur dashboard par poori taiyaari,",
-   "start": 49.623,
-   "end": 52.011
+   "text": "and your whole move on",
+   "start": 48.486,
+   "end": 49.806
   },
   {
    "id": "c38",
-   "text": "ek nazar mein.",
-   "start": 52.011,
-   "end": 53.024
+   "text": "one dashboard.",
+   "start": 49.806,
+   "end": 50.646
   },
   {
    "id": "c39",
    "text": "Settlr.",
-   "start": 54.987,
-   "end": 55.53
+   "start": 55.136,
+   "end": 55.575
   },
   {
    "id": "c40",
-   "text": "Nayi job,",
-   "start": 55.53,
-   "end": 56.228
+   "text": "Your new job.",
+   "start": 55.575,
+   "end": 56.391
   },
   {
    "id": "c41",
-   "text": "naya shehar,",
-   "start": 56.228,
-   "end": 57.159
+   "text": "Your new city.",
+   "start": 56.391,
+   "end": 57.27
   },
   {
    "id": "c42",
-   "text": "sab kuch sorted.",
-   "start": 57.159,
+   "text": "Everything sorted.",
+   "start": 57.27,
    "end": 58.4
   }
  ]

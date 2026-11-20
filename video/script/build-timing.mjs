@@ -1,5 +1,5 @@
 // Lays the per-scene narration on a 60 s timeline, mixes assets/vo/voiceover.wav and writes
-// script/timing.json + captions (assets/captions.vtt, Roman-script Hinglish).
+// script/timing.json + captions (assets/captions.vtt).
 // Run from video/: node script/build-timing.mjs
 import { execFileSync } from "node:child_process";
 import { readFileSync, writeFileSync } from "node:fs";
@@ -10,11 +10,14 @@ const GAP = 0.45; // pause between lines (scene cut sits in the middle)
 const lines = JSON.parse(readFileSync("script/voiceover.json", "utf8"));
 const dur = (f) => +execFileSync("ffprobe", ["-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", f], { encoding: "utf8" }).trim();
 
+const durs = lines.map((l) => dur(`assets/vo/${l.id}.wav`));
+// Spread the spare time evenly between lines (0.45–1.6 s), keeping 1.6 s of end card after the last word.
+const gap = Math.min(1.6, Math.max(GAP, (TOTAL - 1.6 - LEAD - durs.reduce((a, b) => a + b, 0)) / (lines.length - 1)));
 let t = LEAD;
-const timed = lines.map((l) => {
-  const d = dur(`assets/vo/${l.id}.wav`);
+const timed = lines.map((l, i) => {
+  const d = durs[i];
   const out = { id: l.id, start: +t.toFixed(3), dur: +d.toFixed(3), en: l.en };
-  t += d + GAP;
+  t += d + gap;
   return out;
 });
 // The closing line sits so it ends ~1.6 s before the end, leaving the end card to breathe.

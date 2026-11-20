@@ -20,19 +20,19 @@
     <div id="s2-win" class="win">
       <div id="s2-shot0" class="shot">
         <div class="bar"><span class="dot" style="background:#F36A5B"></span><span class="dot" style="background:#F6C653"></span><span class="dot" style="background:#3FAE8C"></span><span class="url" data-layout-ignore>settlr</span></div>
-        <div class="vp"><div id="s2-cam0" class="cam"><video id="s2-v0" class="clip" src="assets/hero.mp4" muted playsinline data-start="0" data-duration="6.87"></video></div></div>
+        <div class="vp"><div id="s2-cam0" class="cam"><video id="s2-v0" class="clip" src="assets/hero.mp4" muted playsinline data-start="0" data-duration="5.85"></video></div></div>
       </div>
     </div>
   </div>
   <script>
     const tl = gsap.timeline({ paused: true });
     tl.set("#s2-win", { y: 0 }, 0);
-    tl.fromTo("#s2-d1", { y: 0, rotation: 8 }, { y: -24, rotation: 14, duration: 6.87, ease: "none" }, 0);
-    tl.fromTo("#s2-d2", { y: 0, rotation: -10 }, { y: 30, rotation: 2, duration: 6.87, ease: "none" }, 0);
-    tl.fromTo("#s2-d3", { y: 0, rotation: 20 }, { y: -18, rotation: 40, duration: 6.87, ease: "none" }, 0);
+    tl.fromTo("#s2-d1", { y: 0, rotation: 8 }, { y: -24, rotation: 14, duration: 5.85, ease: "none" }, 0);
+    tl.fromTo("#s2-d2", { y: 0, rotation: -10 }, { y: 30, rotation: 2, duration: 5.85, ease: "none" }, 0);
+    tl.fromTo("#s2-d3", { y: 0, rotation: 20 }, { y: -18, rotation: 40, duration: 5.85, ease: "none" }, 0);
     tl.set("#s2-cam0", { x: 0, y: 0, scale: 0.75 }, 0);
-    tl.to("#s2-cam0", { x: -269, y: -71, scale: 1.0588, duration: 0.9, ease: "power3.inOut" }, 3.06);
-    tl.to("#s2-cam0", { x: 0, y: 0, scale: 0.75, duration: 0.9, ease: "power3.inOut" }, 6.09);
+    tl.to("#s2-cam0", { x: -269, y: -71, scale: 1.0588, duration: 0.9, ease: "power3.inOut" }, 2.80);
+    tl.to("#s2-cam0", { x: 0, y: 0, scale: 0.75, duration: 0.9, ease: "power3.inOut" }, 4.73);
     window.__timelines["s2"] = tl;
   </script>
 </template>

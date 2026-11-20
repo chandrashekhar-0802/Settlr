@@ -18,7 +18,7 @@
     <div id="s5-d2" class="deco" data-layout-ignore style="left:1736px;top:120px;width:84px;height:84px;background:#F36A5B;"></div>
     <div id="s5-d3" class="deco" data-layout-ignore style="left:1760px;top:760px;width:56px;height:56px;background:#F6C653;border-radius:16px;"></div>
     <div id="s5-win" class="win">
-      <div id="s5-shot0" class="clip shot" data-start="0" data-duration="10.16">
+      <div id="s5-shot0" class="clip shot" data-start="0" data-duration="10.22">
         <div class="bar"><span class="dot" style="background:#F36A5B"></span><span class="dot" style="background:#F6C653"></span><span class="dot" style="background:#3FAE8C"></span><span class="url" data-layout-ignore>settlr · /my-plan</span></div>
         <div class="vp"><div id="s5-cam0" class="cam"><img src="assets/screens/my-plan.jpg" alt="" /></div></div>
       </div>
@@ -27,12 +27,12 @@
   <script>
     const tl = gsap.timeline({ paused: true });
     tl.set("#s5-win", { y: 0 }, 0);
-    tl.fromTo("#s5-d1", { y: 0, rotation: 8 }, { y: -24, rotation: 14, duration: 10.16, ease: "none" }, 0);
-    tl.fromTo("#s5-d2", { y: 0, rotation: -10 }, { y: 30, rotation: 2, duration: 10.16, ease: "none" }, 0);
-    tl.fromTo("#s5-d3", { y: 0, rotation: 20 }, { y: -18, rotation: 40, duration: 10.16, ease: "none" }, 0);
+    tl.fromTo("#s5-d1", { y: 0, rotation: 8 }, { y: -24, rotation: 14, duration: 10.22, ease: "none" }, 0);
+    tl.fromTo("#s5-d2", { y: 0, rotation: -10 }, { y: 30, rotation: 2, duration: 10.22, ease: "none" }, 0);
+    tl.fromTo("#s5-d3", { y: 0, rotation: 20 }, { y: -18, rotation: 40, duration: 10.22, ease: "none" }, 0);
     tl.set("#s5-cam0", { x: -804, y: -254, scale: 1.1688 }, 0);
-    tl.to("#s5-cam0", { x: -491, y: -310, scale: 1.5652, duration: 0.9, ease: "power3.inOut" }, 5.25);
-    tl.to("#s5-cam0", { scale: 1.6043, x: -509, y: -320, duration: 4.01, ease: "none" }, 6.15);
+    tl.to("#s5-cam0", { x: -491, y: -310, scale: 1.5652, duration: 0.9, ease: "power3.inOut" }, 5.44);
+    tl.to("#s5-cam0", { scale: 1.6043, x: -509, y: -320, duration: 3.88, ease: "none" }, 6.34);
     window.__timelines["s5"] = tl;
   </script>
 </template>

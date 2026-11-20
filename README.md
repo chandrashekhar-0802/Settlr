@@ -54,6 +54,6 @@ npm run test:e2e    # Playwright journeys, desktop + mobile
 
 ## Explainer video
 
-A 60-second Hinglish explainer, made with [HyperFrames](https://github.com/heygen-com/hyperframes) from real screenshots and a real recording of this site, plays on `/dashboard`. It's served from `public/video/` (Vercel CDN): `settlr-explainer.mp4`, a poster image and `settlr-explainer.vtt` captions.
+A 60-second English explainer, made with [HyperFrames](https://github.com/heygen-com/hyperframes) from real screenshots and a real recording of this site, plays on `/dashboard`. It's served from `public/video/` (Vercel CDN): `settlr-explainer.mp4`, a poster image and `settlr-explainer.vtt` captions.
 
 The editable project is in `video/` (see `video/README.md`): script, timing, scenes, captions, voice and music sources.
