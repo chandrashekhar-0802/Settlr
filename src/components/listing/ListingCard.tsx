@@ -6,13 +6,11 @@ import { Badge, inr } from "@/components/ui";
 import { MAX_COMPARE, useSettlr } from "@/lib/store";
 import type { Listing } from "@/lib/types";
 import { km as fmtKm } from "@/lib/format";
+import { KIND_LABEL, priceLine } from "@/lib/labels";
+
+export { KIND_LABEL, priceLine };
 import { ListingArt } from "./ListingArt";
 
-export const KIND_LABEL: Record<string, string> = {
-  pg: "PG", flat: "Flat", hostel: "Hostel", tiffin: "Tiffin", mess: "Mess", "home-meals": "Home meals", "meal-subscription": "Meal plan",
-  metro: "Metro", bus: "Bus", "bike-rental": "Bike rental", "shared-ride": "Shared ride", cab: "Cab", walk: "Walk",
-  wifi: "Wi-Fi", laundry: "Laundry", cleaning: "Cleaning", furniture: "Furniture", moving: "Movers", grocery: "Groceries", household: "Household", maintenance: "Repairs",
-};
 
 export function TrustBadges({ l }: { l: Listing }) {
   return (
@@ -29,12 +27,6 @@ export function TrustBadges({ l }: { l: Listing }) {
   );
 }
 
-export function priceLine(l: Listing) {
-  if (l.category === "transport") return l.fixedMonthly ? `${inr(l.fixedMonthly)}/mo + usage` : "Pay per trip";
-  if (l.monthly) return `${inr(l.monthly)}/mo`;
-  if (l.oneTime) return `${inr(l.oneTime)} one-time`;
-  return "Price on request";
-}
 
 export function ListingCard({ l, km, onInquire }: { l: Listing; km?: number; onInquire: (l: Listing) => void }) {
   const { state, toggleSave, toggleCompare } = useSettlr();
